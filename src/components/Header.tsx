@@ -39,7 +39,7 @@ export default function Header() {
             <Icon name="Zap" size={18} className="text-white" />
           </div>
           <span className="text-xl font-bold font-['Manrope'] text-white">
-            Site<span className="gradient-text">Pro</span>
+            Site<span className="gradient-text">Sphere</span>
           </span>
         </Link>
 

@@ -242,7 +242,7 @@ export default function Index() {
             Готов запустить сайт мечты?
           </h2>
           <p className="text-white/80 text-xl mb-10 max-w-xl mx-auto">
-            Присоединись к 12 000+ предпринимателей, которые уже растут с SitePro
+            Присоединись к 12 000+ предпринимателей, которые уже растут с SiteSphere
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button

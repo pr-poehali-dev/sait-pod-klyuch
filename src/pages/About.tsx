@@ -46,7 +46,7 @@ export default function About() {
             <span className="gradient-text">доступным</span>
           </h1>
           <p className="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
-            SitePro — платформа, которая даёт малому бизнесу инструменты крупных корпораций. Без кода, без сложностей, с максимальным результатом.
+            SiteSphere — платформа, которая даёт малому бизнесу инструменты крупных корпораций. Без кода, без сложностей, с максимальным результатом.
           </p>
         </div>
       </section>
@@ -122,7 +122,7 @@ export default function About() {
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-pink-500/20 text-pink-300 border-pink-500/30">Команда</Badge>
             <h2 className="text-4xl font-black text-white font-['Manrope']">
-              Люди за <span className="gradient-text">SitePro</span>
+              Люди за <span className="gradient-text">SiteSphere</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

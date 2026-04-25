@@ -39,7 +39,7 @@ export default function Footer() {
                 <Icon name="Zap" size={18} className="text-white" />
               </div>
               <span className="text-xl font-bold font-['Manrope']">
-                Site<span className="gradient-text">Pro</span>
+                Site<span className="gradient-text">Sphere</span>
               </span>
             </Link>
             <p className="text-white/50 text-sm leading-relaxed mb-6 max-w-xs">
@@ -82,7 +82,7 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-white/30 text-sm">
-            © 2024 SitePro. Все права защищены.
+            © 2024 SiteSphere. Все права защищены.
           </p>
           <div className="flex items-center gap-2 text-white/30 text-sm">
             <Icon name="Shield" size={14} />

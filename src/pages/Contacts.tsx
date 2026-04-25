@@ -11,7 +11,7 @@ const contactInfo = [
   {
     icon: "MessageCircle",
     title: "Telegram",
-    value: "@sitepro_support",
+    value: "@sitesphere_support",
     desc: "Ответ за 5 минут",
     color: "from-blue-500 to-sky-400",
     href: "#",
@@ -19,10 +19,10 @@ const contactInfo = [
   {
     icon: "Mail",
     title: "Email",
-    value: "hello@sitepro.ru",
+    value: "hello@sitesphere.ru",
     desc: "Ответ в течение часа",
     color: "from-purple-500 to-violet-600",
-    href: "mailto:hello@sitepro.ru",
+    href: "mailto:hello@sitesphere.ru",
   },
   {
     icon: "Phone",
