@@ -212,7 +212,7 @@ export default function Blog() {
           </div>
 
           <div className="text-center mt-12">
-            <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 px-8">
+            <Button variant="outline" className="border-white/20 text-white bg-transparent hover:bg-white/10 px-8">
               Загрузить ещё
               <Icon name="ChevronDown" size={18} className="ml-2" />
             </Button>

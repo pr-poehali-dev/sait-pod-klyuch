@@ -116,7 +116,7 @@ export default function Index() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white/20 text-white hover:bg-white/10 text-lg px-8 py-6"
+                className="border-white/20 text-white bg-transparent hover:bg-white/10 text-lg px-8 py-6"
               >
                 <Icon name="Play" size={18} className="mr-2" />
                 Смотреть демо
