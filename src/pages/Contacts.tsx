@@ -1,54 +1,18 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Icon from "@/components/ui/icon";
 
 const contactInfo = [
-  {
-    icon: "MessageCircle",
-    title: "Telegram",
-    value: "@sitesphere_support",
-    desc: "Ответ за 5 минут",
-    color: "from-blue-500 to-sky-400",
-    href: "#",
-  },
-  {
-    icon: "Mail",
-    title: "Email",
-    value: "hello@sitesphere.ru",
-    desc: "Ответ в течение часа",
-    color: "from-purple-500 to-violet-600",
-    href: "mailto:hello@sitesphere.ru",
-  },
-  {
-    icon: "Phone",
-    title: "Телефон",
-    value: "+7 (800) 123-45-67",
-    desc: "Бесплатно, пн–пт 9:00–20:00",
-    color: "from-green-500 to-emerald-600",
-    href: "tel:+78001234567",
-  },
-  {
-    icon: "MapPin",
-    title: "Офис",
-    value: "Москва, ул. Арбат, 1",
-    desc: "По предварительной записи",
-    color: "from-pink-500 to-rose-600",
-    href: "#",
-  },
+  { icon: "MessageCircle", title: "Telegram", value: "@sitesphere_support", desc: "Ответ за 5 минут", href: "#" },
+  { icon: "Mail", title: "Email", value: "hello@sitesphere.ru", desc: "Ответ в течение часа", href: "mailto:hello@sitesphere.ru" },
+  { icon: "Phone", title: "Телефон", value: "+7 (800) 123-45-67", desc: "Бесплатно, пн–пт 9:00–20:00", href: "tel:+78001234567" },
+  { icon: "MapPin", title: "Офис", value: "Москва, ул. Арбат, 1", desc: "По предварительной записи", href: "#" },
 ];
 
-const topics = [
-  "Технический вопрос",
-  "Вопрос по тарифам",
-  "Предложение о партнёрстве",
-  "Вопрос по интеграциям",
-  "Другое",
-];
+const topics = ["Технический вопрос", "Вопрос по тарифам", "Предложение о партнёрстве", "Вопрос по интеграциям", "Другое"];
 
 export default function Contacts() {
   const [sent, setSent] = useState(false);
@@ -60,140 +24,116 @@ export default function Contacts() {
   };
 
   return (
-    <div className="min-h-screen bg-[#080612]">
+    <div className="min-h-screen">
       <Header />
 
-      {/* Hero */}
-      <section className="gradient-hero pt-32 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-1/4 w-72 h-72 bg-purple-600/20 rounded-full blur-3xl animate-float" />
-          <div className="absolute bottom-10 right-1/4 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl animate-float-delayed" />
-        </div>
-        <div className="container mx-auto relative z-10 text-center">
-          <Badge className="mb-6 gradient-primary text-white border-0 px-4 py-1.5">
-            Контакты
-          </Badge>
+      {/* Hero dark */}
+      <section className="section-dark relative overflow-hidden pt-32 pb-20">
+        <div className="absolute top-0 left-[-60px] w-[400px] h-[400px] glow-blob-purple rounded-full pointer-events-none animate-float" />
+        <div className="container mx-auto px-6 relative z-10 text-center">
+          <p className="text-sm font-semibold tracking-widest uppercase text-[#9B59F5] mb-4">Контакты</p>
           <h1 className="text-5xl md:text-6xl font-black text-white mb-6 font-['Manrope']">
             Мы всегда{" "}
-            <span className="gradient-text">на связи</span>
+            <span className="brand-gradient-text">на связи</span>
           </h1>
-          <p className="text-xl text-white/60 max-w-xl mx-auto">
-            Задай вопрос, сообщи о проблеме или просто поздоровайся. Мы рады каждому обращению.
+          <p className="text-white/50 text-lg max-w-xl mx-auto">
+            Задай вопрос, сообщи о проблеме или просто поздоровайся — мы рады каждому обращению.
           </p>
         </div>
       </section>
 
-      {/* Contact info */}
-      <section className="py-20">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+      {/* Contact cards + form light */}
+      <section className="section-light py-20">
+        <div className="container mx-auto px-6">
+          {/* Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
             {contactInfo.map((item) => (
-              <a
-                key={item.title}
-                href={item.href}
-                className="glass rounded-2xl p-6 card-hover group text-center"
-              >
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform`}>
-                  <Icon name={item.icon} size={24} className="text-white" />
+              <a key={item.title} href={item.href} className="card-light-gray p-5 card-hover group text-center block">
+                <div className="w-12 h-12 rounded-xl brand-gradient flex items-center justify-center mx-auto mb-3 group-hover:scale-105 transition-transform">
+                  <Icon name={item.icon} size={20} className="text-white" />
                 </div>
-                <h3 className="text-white font-bold mb-1 font-['Manrope']">{item.title}</h3>
-                <p className="text-white text-sm mb-1">{item.value}</p>
-                <p className="text-white/40 text-xs">{item.desc}</p>
+                <h3 className="text-[#0A0A0F] font-bold text-sm mb-1 font-['Manrope']">{item.title}</h3>
+                <p className="text-[#0A0A0F] text-sm font-medium mb-0.5">{item.value}</p>
+                <p className="text-gray-400 text-xs">{item.desc}</p>
               </a>
             ))}
           </div>
 
           {/* Form */}
-          <div className="max-w-2xl mx-auto">
-            <div className="glass rounded-2xl p-8 md:p-10">
-              {sent ? (
-                <div className="text-center py-12">
-                  <div className="w-20 h-20 rounded-full gradient-primary flex items-center justify-center mx-auto mb-6 glow-primary">
-                    <Icon name="CheckCheck" size={36} className="text-white" />
-                  </div>
-                  <h3 className="text-white text-2xl font-black mb-3 font-['Manrope']">
-                    Сообщение отправлено!
-                  </h3>
-                  <p className="text-white/50 mb-6">
-                    Мы ответим в течение часа в рабочее время.
-                  </p>
-                  <Button
-                    onClick={() => setSent(false)}
-                    className="gradient-primary text-white border-0"
-                  >
-                    Отправить ещё
-                  </Button>
+          <div className="max-w-2xl mx-auto card-light p-8 md:p-10">
+            {sent ? (
+              <div className="text-center py-10">
+                <div className="w-16 h-16 rounded-full brand-gradient flex items-center justify-center mx-auto mb-5">
+                  <Icon name="CheckCheck" size={28} className="text-white" />
                 </div>
-              ) : (
-                <>
-                  <h2 className="text-white text-2xl font-black mb-2 font-['Manrope']">
-                    Написать нам
-                  </h2>
-                  <p className="text-white/50 text-sm mb-8">
-                    Заполни форму и мы свяжемся с тобой в ближайшее время
-                  </p>
-                  <form onSubmit={handleSubmit} className="space-y-5">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                      <div>
-                        <label className="text-white/70 text-sm mb-2 block">Имя</label>
-                        <Input
-                          placeholder="Иван Иванов"
-                          className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:border-purple-500"
-                          value={form.name}
-                          onChange={(e) => setForm({ ...form, name: e.target.value })}
-                          required
-                        />
-                      </div>
-                      <div>
-                        <label className="text-white/70 text-sm mb-2 block">Email</label>
-                        <Input
-                          type="email"
-                          placeholder="ivan@company.ru"
-                          className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:border-purple-500"
-                          value={form.email}
-                          onChange={(e) => setForm({ ...form, email: e.target.value })}
-                          required
-                        />
-                      </div>
-                    </div>
-
+                <h3 className="text-[#0A0A0F] text-2xl font-black mb-2 font-['Manrope']">Сообщение отправлено!</h3>
+                <p className="text-gray-400 mb-6 text-sm">Мы ответим в течение часа в рабочее время.</p>
+                <button
+                  onClick={() => setSent(false)}
+                  className="btn-purple px-6 py-2.5 rounded-full text-sm font-semibold"
+                >
+                  Отправить ещё
+                </button>
+              </div>
+            ) : (
+              <>
+                <h2 className="text-[#0A0A0F] text-2xl font-black mb-1 font-['Manrope']">Написать нам</h2>
+                <p className="text-gray-400 text-sm mb-7">Заполни форму и мы свяжемся с тобой в ближайшее время</p>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="text-white/70 text-sm mb-2 block">Тема обращения</label>
-                      <select
-                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-purple-500 transition-colors"
-                        value={form.topic}
-                        onChange={(e) => setForm({ ...form, topic: e.target.value })}
-                      >
-                        <option value="" className="bg-[#1a1330]">Выберите тему</option>
-                        {topics.map((t) => (
-                          <option key={t} value={t} className="bg-[#1a1330]">{t}</option>
-                        ))}
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="text-white/70 text-sm mb-2 block">Сообщение</label>
-                      <Textarea
-                        placeholder="Опишите ваш вопрос подробнее..."
-                        rows={5}
-                        className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:border-purple-500 resize-none"
-                        value={form.message}
-                        onChange={(e) => setForm({ ...form, message: e.target.value })}
+                      <label className="text-[#0A0A0F] text-sm mb-1.5 block font-medium">Имя</label>
+                      <Input
+                        placeholder="Иван Иванов"
+                        className="border-gray-200 focus:border-[#7B2FE0] focus:ring-[#7B2FE0]"
+                        value={form.name}
+                        onChange={(e) => setForm({ ...form, name: e.target.value })}
                         required
                       />
                     </div>
-
-                    <Button
-                      type="submit"
-                      className="w-full gradient-primary text-white border-0 py-6 text-base font-bold hover:opacity-90 glow-primary"
+                    <div>
+                      <label className="text-[#0A0A0F] text-sm mb-1.5 block font-medium">Email</label>
+                      <Input
+                        type="email"
+                        placeholder="ivan@company.ru"
+                        className="border-gray-200 focus:border-[#7B2FE0] focus:ring-[#7B2FE0]"
+                        value={form.email}
+                        onChange={(e) => setForm({ ...form, email: e.target.value })}
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="text-[#0A0A0F] text-sm mb-1.5 block font-medium">Тема</label>
+                    <select
+                      className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#7B2FE0] transition-colors text-[#0A0A0F]"
+                      value={form.topic}
+                      onChange={(e) => setForm({ ...form, topic: e.target.value })}
                     >
-                      Отправить сообщение
-                      <Icon name="Send" size={18} className="ml-2" />
-                    </Button>
-                  </form>
-                </>
-              )}
-            </div>
+                      <option value="">Выберите тему</option>
+                      {topics.map((t) => <option key={t} value={t}>{t}</option>)}
+                    </select>
+                  </div>
+                  <div>
+                    <label className="text-[#0A0A0F] text-sm mb-1.5 block font-medium">Сообщение</label>
+                    <Textarea
+                      placeholder="Опишите ваш вопрос..."
+                      rows={5}
+                      className="border-gray-200 focus:border-[#7B2FE0] resize-none"
+                      value={form.message}
+                      onChange={(e) => setForm({ ...form, message: e.target.value })}
+                      required
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="btn-purple w-full py-3 rounded-full text-sm font-semibold"
+                  >
+                    Отправить сообщение
+                  </button>
+                </form>
+              </>
+            )}
           </div>
         </div>
       </section>
