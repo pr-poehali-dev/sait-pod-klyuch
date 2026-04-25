@@ -10,13 +10,11 @@ import Pricing from "./pages/Pricing";
 import Blog from "./pages/Blog";
 import Contacts from "./pages/Contacts";
 import NotFound from "./pages/NotFound";
-import { LangProvider } from "./i18n/LangContext";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <LangProvider>
     <TooltipProvider>
       <Toaster />
       <Sonner />
@@ -32,7 +30,6 @@ const App = () => (
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
-    </LangProvider>
   </QueryClientProvider>
 );
 
