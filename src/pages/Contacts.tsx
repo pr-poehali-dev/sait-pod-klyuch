@@ -7,18 +7,12 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Icon from "@/components/ui/icon";
 import { useReveal } from "@/hooks/useReveal";
-
-const contactInfo = [
-  { icon: "MessageCircle", title: "Telegram", value: "@sitesphere_support", desc: "Ответ за 5 минут", color: "from-blue-500 to-sky-400", href: "#" },
-  { icon: "Mail", title: "Email", value: "hello@sitesphere.ru", desc: "Ответ в течение часа", color: "from-purple-500 to-violet-600", href: "mailto:hello@sitesphere.ru" },
-  { icon: "Phone", title: "Телефон", value: "+7 (800) 123-45-67", desc: "Бесплатно, пн–пт 9:00–20:00", color: "from-green-500 to-emerald-600", href: "tel:+78001234567" },
-  { icon: "MapPin", title: "Офис", value: "Москва, ул. Арбат, 1", desc: "По предварительной записи", color: "from-pink-500 to-rose-600", href: "#" },
-];
-
-const topics = ["Технический вопрос", "Вопрос по тарифам", "Предложение о партнёрстве", "Вопрос по интеграциям", "Другое"];
+import { useLang } from "@/i18n/LangContext";
 
 export default function Contacts() {
   useReveal();
+  const { t } = useLang();
+  const { contacts } = t;
   const [sent, setSent] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", topic: "", message: "" });
 
@@ -37,20 +31,18 @@ export default function Contacts() {
           <div className="absolute bottom-10 right-1/4 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl animate-float-delayed" />
         </div>
         <div className="container mx-auto relative z-10 text-center">
-          <Badge className="mb-6 gradient-primary text-white border-0 px-4 py-1.5">Контакты</Badge>
+          <Badge className="mb-6 gradient-primary text-white border-0 px-4 py-1.5">{contacts.badge}</Badge>
           <h1 className="text-5xl md:text-6xl font-black text-white mb-6 font-['Manrope']">
-            Мы всегда <span className="gradient-text">на связи</span>
+            {contacts.title1} <span className="gradient-text">{contacts.title2}</span>
           </h1>
-          <p className="text-xl text-white/60 max-w-xl mx-auto">
-            Задай вопрос, сообщи о проблеме или просто поздоровайся. Мы рады каждому обращению.
-          </p>
+          <p className="text-xl text-white/60 max-w-xl mx-auto">{contacts.subtitle}</p>
         </div>
       </section>
 
       <section className="py-20">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-            {contactInfo.map((item, i) => (
+            {contacts.info.map((item, i) => (
               <a key={item.title} href={item.href} className={`glass rounded-2xl p-6 card-hover group text-center reveal delay-${i * 100 + 100}`}>
                 <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform`}>
                   <Icon name={item.icon} size={24} className="text-white" />
@@ -69,44 +61,46 @@ export default function Contacts() {
                   <div className="w-20 h-20 rounded-full gradient-primary flex items-center justify-center mx-auto mb-6 glow-primary">
                     <Icon name="CheckCheck" size={36} className="text-white" />
                   </div>
-                  <h3 className="text-white text-2xl font-black mb-3 font-['Manrope']">Сообщение отправлено!</h3>
-                  <p className="text-white/50 mb-6">Мы ответим в течение часа в рабочее время.</p>
+                  <h3 className="text-white text-2xl font-black mb-3 font-['Manrope']">{contacts.form.successTitle}</h3>
+                  <p className="text-white/50 mb-6">{contacts.form.successDesc}</p>
                   <Button onClick={() => setSent(false)} className="gradient-primary text-white border-0">
-                    Отправить ещё
+                    {contacts.form.sendAnother}
                   </Button>
                 </div>
               ) : (
                 <>
-                  <h2 className="text-white text-2xl font-black mb-2 font-['Manrope']">Написать нам</h2>
-                  <p className="text-white/50 text-sm mb-8">Заполни форму и мы свяжемся с тобой в ближайшее время</p>
+                  <h2 className="text-white text-2xl font-black mb-2 font-['Manrope']">{contacts.form.title}</h2>
+                  <p className="text-white/50 text-sm mb-8">{contacts.form.subtitle}</p>
                   <form onSubmit={handleSubmit} className="space-y-5">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div>
-                        <label className="text-white/70 text-sm mb-2 block">Имя</label>
-                        <Input placeholder="Иван Иванов" className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:border-purple-500" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required />
+                        <label className="text-white/70 text-sm mb-2 block">{contacts.form.name}</label>
+                        <Input placeholder={contacts.form.namePlaceholder} className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:border-purple-500" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required />
                       </div>
                       <div>
-                        <label className="text-white/70 text-sm mb-2 block">Email</label>
-                        <Input type="email" placeholder="ivan@company.ru" className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:border-purple-500" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} required />
+                        <label className="text-white/70 text-sm mb-2 block">{contacts.form.email}</label>
+                        <Input type="email" placeholder={contacts.form.emailPlaceholder} className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:border-purple-500" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} required />
                       </div>
                     </div>
                     <div>
-                      <label className="text-white/70 text-sm mb-2 block">Тема обращения</label>
+                      <label className="text-white/70 text-sm mb-2 block">{contacts.form.topic}</label>
                       <select
                         className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-purple-500 transition-colors"
                         value={form.topic}
                         onChange={(e) => setForm({ ...form, topic: e.target.value })}
                       >
-                        <option value="" className="bg-[#1a1330]">Выберите тему</option>
-                        {topics.map((t) => <option key={t} value={t} className="bg-[#1a1330]">{t}</option>)}
+                        <option value="" className="bg-[#1a1330]">{contacts.form.topicPlaceholder}</option>
+                        {contacts.form.topics.map((topic) => (
+                          <option key={topic} value={topic} className="bg-[#1a1330]">{topic}</option>
+                        ))}
                       </select>
                     </div>
                     <div>
-                      <label className="text-white/70 text-sm mb-2 block">Сообщение</label>
-                      <Textarea placeholder="Опишите ваш вопрос подробнее..." rows={5} className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:border-purple-500 resize-none" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} required />
+                      <label className="text-white/70 text-sm mb-2 block">{contacts.form.message}</label>
+                      <Textarea placeholder={contacts.form.messagePlaceholder} rows={5} className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:border-purple-500 resize-none" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} required />
                     </div>
                     <Button type="submit" className="w-full gradient-primary text-white border-0 py-6 text-base font-bold hover:opacity-90 glow-primary">
-                      Отправить сообщение
+                      {contacts.form.submit}
                       <Icon name="Send" size={18} className="ml-2" />
                     </Button>
                   </form>

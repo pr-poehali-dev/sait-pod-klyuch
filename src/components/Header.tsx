@@ -2,20 +2,23 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
-
-const navLinks = [
-  { label: "Главная", href: "/" },
-  { label: "О платформе", href: "/about" },
-  { label: "Портфолио", href: "/portfolio" },
-  { label: "Цены", href: "/pricing" },
-  { label: "Блог", href: "/blog" },
-  { label: "Контакты", href: "/contacts" },
-];
+import { useLang } from "@/i18n/LangContext";
+import { Lang } from "@/i18n/translations";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
+  const { lang, setLang, t } = useLang();
+
+  const navLinks = [
+    { label: t.nav.home, href: "/" },
+    { label: t.nav.about, href: "/about" },
+    { label: t.nav.portfolio, href: "/portfolio" },
+    { label: t.nav.pricing, href: "/pricing" },
+    { label: t.nav.blog, href: "/blog" },
+    { label: t.nav.contacts, href: "/contacts" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -24,6 +27,8 @@ export default function Header() {
   }, []);
 
   useEffect(() => setMobileOpen(false), [location.pathname]);
+
+  const toggleLang = () => setLang(lang === "ru" ? "zh" : "ru");
 
   return (
     <header
@@ -58,20 +63,37 @@ export default function Header() {
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
+          {/* Language switcher */}
+          <button
+            onClick={toggleLang}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-white/15 text-white/70 hover:text-white hover:border-white/30 transition-all text-sm font-medium"
+            title={lang === "ru" ? "Switch to Chinese" : "切换到俄语"}
+          >
+            <span className="text-base leading-none">{lang === "ru" ? "🇨🇳" : "🇷🇺"}</span>
+            <span>{lang === "ru" ? "中文" : "RU"}</span>
+          </button>
           <Button variant="ghost" className="text-white/80 hover:text-white hover:bg-white/10">
-            Войти
+            {t.nav.login}
           </Button>
           <Button className="gradient-primary text-white border-0 hover:opacity-90 glow-primary font-semibold">
-            Начать бесплатно
+            {t.nav.start}
           </Button>
         </div>
 
-        <button
-          className="md:hidden text-white p-2"
-          onClick={() => setMobileOpen(!mobileOpen)}
-        >
-          <Icon name={mobileOpen ? "X" : "Menu"} size={24} />
-        </button>
+        <div className="md:hidden flex items-center gap-2">
+          <button
+            onClick={toggleLang}
+            className="text-white/70 hover:text-white p-1.5 text-sm border border-white/15 rounded-lg"
+          >
+            {lang === "ru" ? "🇨🇳" : "🇷🇺"}
+          </button>
+          <button
+            className="text-white p-2"
+            onClick={() => setMobileOpen(!mobileOpen)}
+          >
+            <Icon name={mobileOpen ? "X" : "Menu"} size={24} />
+          </button>
+        </div>
       </div>
 
       {mobileOpen && (
@@ -93,10 +115,10 @@ export default function Header() {
           </nav>
           <div className="flex flex-col gap-2">
             <Button variant="ghost" className="text-white/80 hover:text-white hover:bg-white/10 w-full">
-              Войти
+              {t.nav.login}
             </Button>
             <Button className="gradient-primary text-white border-0 w-full font-semibold">
-              Начать бесплатно
+              {t.nav.start}
             </Button>
           </div>
         </div>
