@@ -29,11 +29,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 rounded-xl gradient-primary flex items-center justify-center">
-                <Icon name="Zap" size={18} className="text-white" />
+              <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center">
+                <Icon name="Globe" size={16} className="text-white" />
               </div>
               <span className="text-xl font-bold font-['Manrope']">
-                Site<span className="gradient-text">Sphere</span>
+                Alt<span className="gradient-text">Del</span>
               </span>
             </Link>
             <p className="text-white/50 text-sm leading-relaxed mb-6 max-w-xs">
@@ -74,7 +74,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-white/30 text-sm">© 2024 SiteSphere. Все права защищены.</p>
+          <p className="text-white/30 text-sm">© 2024 AltDel. Все права защищены.</p>
           <div className="flex items-center gap-2 text-white/30 text-sm">
             <Icon name="Shield" size={14} />
             <span>Безопасные платежи · SSL шифрование</span>

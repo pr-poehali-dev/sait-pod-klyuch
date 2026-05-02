@@ -33,6 +33,9 @@ export default function Header() {
     >
       <div className="container mx-auto flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
+          <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center glow-primary">
+            <Icon name="Globe" size={16} className="text-white" />
+          </div>
           <span className="text-xl font-bold font-['Manrope'] text-white tracking-tight">
             Alt<span className="gradient-text">Del</span>
           </span>
