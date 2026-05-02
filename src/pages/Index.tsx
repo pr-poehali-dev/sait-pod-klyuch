@@ -19,7 +19,7 @@ const stats = [
   { value: "Быстро", label: "Запуск за 7 дней" },
   { value: "Красиво", label: "Без шаблонов" },
   { value: "SEO", label: "Яндекс Реклама" },
-  { value: "Надёжность", label: "SSL и защита" },
+  { value: "SSL", label: "Надёжная защита" },
 ];
 
 const steps = [
