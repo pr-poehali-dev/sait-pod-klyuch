@@ -33,11 +33,8 @@ export default function Header() {
     >
       <div className="container mx-auto flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-xl gradient-primary flex items-center justify-center glow-primary">
-            <Icon name="Zap" size={18} className="text-white" />
-          </div>
-          <span className="text-xl font-bold font-['Manrope'] text-white">
-            Site<span className="gradient-text">Sphere</span>
+          <span className="text-xl font-bold font-['Manrope'] text-white tracking-tight">
+            Alt<span className="gradient-text">Del</span>
           </span>
         </Link>
 
