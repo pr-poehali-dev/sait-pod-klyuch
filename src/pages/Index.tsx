@@ -6,13 +6,38 @@ import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
 import { useReveal } from "@/hooks/useReveal";
 
-const features = [
-  { icon: "Zap", title: "Быстрый старт", desc: "Запускаем сайт за 7 дней. Никаких технических знаний не нужно.", color: "#6c47ff" },
-  { icon: "Palette", title: "Уникальный дизайн", desc: "Разрабатываем под ваш бренд. Без шаблонов — всё с нуля.", color: "#ff3fa4" },
-  { icon: "Plug", title: "Интеграции", desc: "Яндекс Бизнес, ЮKassa, Telegram-боты — подключим всё нужное.", color: "#00d4ff" },
-  { icon: "Shield", title: "Надёжность", desc: "SSL, защита от атак, резервные копии каждые 24 часа.", color: "#22c55e" },
-  { icon: "BarChart2", title: "Аналитика", desc: "Яндекс.Метрика и Google Analytics — знаете каждый шаг клиента.", color: "#a855f7" },
-  { icon: "Headphones", title: "Поддержка 24/7", desc: "Живые специалисты на связи. Ответим за 5 минут.", color: "#f97316" },
+const services = [
+  {
+    href: "/services/landing",
+    icon: "Layout",
+    title: "Лендинг / Визитка",
+    subtitle: "Сайт-визитка или магазин",
+    price: "от 15 000 ₽",
+    period: "7 дней",
+    color: "#6c47ff",
+    features: ["Лендинг, визитка или небольшой магазин", "Уникальный дизайн под бренд", "Мобильная версия", "Форма заявки", "Быстрая загрузка"],
+  },
+  {
+    href: "/services/setup",
+    icon: "Settings",
+    title: "Всё подключено",
+    subtitle: "Настройка и интеграции",
+    price: "от 5 000 ₽",
+    period: "2 дня",
+    color: "#00d4ff",
+    popular: true,
+    features: ["Домен и SSL", "Яндекс Метрика", "Яндекс Бизнес", "Telegram-уведомления", "Инструкция по использованию"],
+  },
+  {
+    href: "/services/shop",
+    icon: "ShoppingBag",
+    title: "Магазин под ключ",
+    subtitle: "Продажи онлайн",
+    price: "от 35 000 ₽",
+    period: "14 дней",
+    color: "#ff3fa4",
+    features: ["Приём оплаты (ЮKassa / Robokassa)", "Каталог товаров", "Домен в подарок", "Логотип", "SEO-настройка"],
+  },
 ];
 
 const stats = [
@@ -101,30 +126,60 @@ export default function Index() {
         <div className="absolute bottom-0 left-0 right-0 h-28 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent, var(--surface-0))" }} />
       </section>
 
-      {/* ── FEATURES ── */}
+      {/* ── SERVICES ── */}
       <section className="py-28" style={{ backgroundColor: "var(--surface-1)" }}>
         <div className="container mx-auto">
           <div className="text-center mb-16 reveal">
-            <div className="chip mb-5 mx-auto w-fit">Что входит</div>
+            <div className="chip mb-5 mx-auto w-fit">Услуги</div>
             <h2 className="text-4xl md:text-5xl font-black text-white mb-4 font-['Manrope']">
-              Всё для вашего бизнеса
+              Выберите подходящий пакет
             </h2>
             <p className="text-white/40 text-lg max-w-xl mx-auto">
-              Подготовим и настроим всё необходимое — от дизайна до аналитики
+              Прозрачная цена, фиксированный срок, передаём все доступы
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {features.map((f, i) => (
-              <div key={f.title} className={`glass rounded-2xl p-6 card-hover group reveal ${delayMap[i % 3]}`}>
-                <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center mb-5"
-                  style={{ background: `${f.color}18`, border: `1px solid ${f.color}30` }}
-                >
-                  <Icon name={f.icon} size={18} style={{ color: f.color }} />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto">
+            {services.map((s, i) => (
+              <div
+                key={s.href}
+                className={`glass rounded-2xl p-7 flex flex-col relative card-hover reveal ${delayMap[i]}`}
+                style={s.popular ? { borderColor: `${s.color}40`, boxShadow: `0 0 32px ${s.color}20` } : {}}
+              >
+                {s.popular && (
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                    <span className="gradient-primary text-white text-xs font-bold px-4 py-1 rounded-full">Популярное</span>
+                  </div>
+                )}
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-5" style={{ background: `${s.color}18`, border: `1px solid ${s.color}30` }}>
+                  <Icon name={s.icon} size={18} style={{ color: s.color }} />
                 </div>
-                <h3 className="text-white font-bold text-base mb-2 font-['Manrope']">{f.title}</h3>
-                <p className="text-white/40 text-sm leading-relaxed">{f.desc}</p>
+                <div className="mb-1 text-white/40 text-xs font-medium uppercase tracking-widest">{s.subtitle}</div>
+                <h3 className="text-white font-black text-xl mb-4 font-['Manrope']">{s.title}</h3>
+                <ul className="space-y-2.5 mb-6 flex-1">
+                  {s.features.map((f) => (
+                    <li key={f} className="flex items-start gap-2.5 text-sm text-white/60">
+                      <div className="w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5" style={{ background: `${s.color}20` }}>
+                        <Icon name="Check" size={10} style={{ color: s.color }} />
+                      </div>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <div className="pt-5 border-t border-white/8">
+                  <div className="flex items-end justify-between mb-4">
+                    <div>
+                      <div className="text-2xl font-black text-white font-['Manrope']">{s.price}</div>
+                      <div className="text-white/35 text-xs mt-0.5">Срок: {s.period}</div>
+                    </div>
+                  </div>
+                  <Link to={s.href} className="block">
+                    <button className="w-full h-10 rounded-xl text-sm font-semibold transition-all hover:opacity-90" style={{ background: `${s.color}18`, color: s.color, border: `1px solid ${s.color}30` }}>
+                      Подробнее
+                      <Icon name="ArrowRight" size={14} className="inline ml-1.5" />
+                    </button>
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
