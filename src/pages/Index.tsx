@@ -2,39 +2,35 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
 import { useReveal } from "@/hooks/useReveal";
 
 const features = [
-  { icon: "Zap", title: "Молниеносная скорость", desc: "Сайты загружаются за 0.5 сек. Оптимизация производительности под капотом.", color: "from-yellow-400 to-orange-500" },
-  { icon: "Palette", title: "Дизайн без ограничений", desc: "Сотни современных шаблонов. Настраивай каждый пиксель под свой бренд.", color: "from-purple-500 to-pink-500" },
-  { icon: "Plug", title: "Мощные интеграции", desc: "Яндекс Бизнес, ЮKassa, Robokassa, Метрика. Всё в одном месте.", color: "from-blue-500 to-cyan-400" },
-  { icon: "Shield", title: "Безопасность", desc: "SSL-сертификат, защита от DDoS, резервные копии каждые 24 часа.", color: "from-green-400 to-emerald-600" },
-  { icon: "BarChart2", title: "Аналитика", desc: "Понимай своих посетителей. Детальная статистика и A/B-тестирование.", color: "from-violet-500 to-purple-700" },
-  { icon: "Headphones", title: "Поддержка 24/7", desc: "Живые специалисты всегда на связи. Ответ за 5 минут.", color: "from-pink-500 to-rose-600" },
+  { icon: "Zap", title: "Быстрый старт", desc: "Запускаем сайт за 7 дней. Никаких технических знаний не нужно.", color: "#6c47ff" },
+  { icon: "Palette", title: "Уникальный дизайн", desc: "Разрабатываем под ваш бренд. Без шаблонов — всё с нуля.", color: "#ff3fa4" },
+  { icon: "Plug", title: "Интеграции", desc: "Яндекс Бизнес, ЮKassa, Telegram-боты — подключим всё нужное.", color: "#00d4ff" },
+  { icon: "Shield", title: "Надёжность", desc: "SSL, защита от атак, резервные копии каждые 24 часа.", color: "#22c55e" },
+  { icon: "BarChart2", title: "Аналитика", desc: "Яндекс.Метрика и Google Analytics — знаете каждый шаг клиента.", color: "#a855f7" },
+  { icon: "Headphones", title: "Поддержка 24/7", desc: "Живые специалисты на связи. Ответим за 5 минут.", color: "#f97316" },
 ];
 
 const stats = [
   { value: "12 000+", label: "Сайтов создано" },
   { value: "98%", label: "Довольных клиентов" },
   { value: "4.9★", label: "Средняя оценка" },
-  { value: "24/7", label: "Поддержка" },
+  { value: "7 дней", label: "Средний срок" },
 ];
 
-const integrations = [
-  { name: "Яндекс Бизнес", icon: "MapPin", color: "from-red-500 to-orange-500", desc: "Публикуйте компанию на картах и в поиске автоматически" },
-  { name: "ЮKassa", icon: "CreditCard", color: "from-violet-500 to-purple-600", desc: "Принимайте оплату онлайн за 5 минут" },
-  { name: "Robokassa", icon: "Wallet", color: "from-blue-500 to-indigo-600", desc: "Более 100 способов оплаты для ваших клиентов" },
-  { name: "Яндекс Метрика", icon: "BarChart3", color: "from-yellow-500 to-orange-500", desc: "Детальная аналитика поведения посетителей" },
-  { name: "Google Analytics", icon: "LineChart", color: "from-green-500 to-teal-500", desc: "Глубокая аналитика и конверсионные воронки" },
-  { name: "Telegram Bot", icon: "Send", color: "from-sky-500 to-blue-600", desc: "Уведомления о заявках прямо в Telegram" },
+const steps = [
+  { num: "01", title: "Заявка", desc: "Оставляете заявку — менеджер свяжется в течение 30 минут и уточнит детали." },
+  { num: "02", title: "Разработка", desc: "Создаём дизайн, верстаем, подключаем нужные сервисы. Вы видите прогресс каждый день." },
+  { num: "03", title: "Запуск", desc: "Публикуем сайт, настраиваем SEO, передаём все доступы. Вы уже принимаете заявки." },
 ];
 
 const testimonials = [
-  { name: "Анна Смирнова", role: "Владелец кофейни", text: "За 2 часа сделала сайт с онлайн-записью и интеграцией с Яндекс Бизнесом. Клиенты начали приходить уже на следующий день!", avatar: "АС" },
-  { name: "Дмитрий Козлов", role: "Фитнес-тренер", text: "Подключил оплату через ЮKassa за 10 минут. Теперь продаю курсы прямо с сайта. Выручка выросла в 3 раза.", avatar: "ДК" },
-  { name: "Марина Петрова", role: "Интернет-магазин", text: "Метрика показала, что 60% посетителей уходили на 2-й странице. Исправили дизайн — конверсия выросла на 40%.", avatar: "МП" },
+  { name: "Анна Смирнова", role: "Владелец кофейни", text: "За 7 дней получила сайт с онлайн-записью и Яндекс.Картами. Клиенты нашли нас уже на следующий день.", avatar: "АС" },
+  { name: "Дмитрий Козлов", role: "Фитнес-тренер", text: "Подключили оплату через ЮKassa за один день. Продаю курсы прямо с сайта — выручка выросла в 3 раза.", avatar: "ДК" },
+  { name: "Марина Петрова", role: "Интернет-магазин", text: "Метрика показала узкое место — исправили за день. Конверсия выросла на 40% за неделю.", avatar: "МП" },
 ];
 
 const delayMap = ["delay-100", "delay-200", "delay-300", "delay-400", "delay-500", "delay-600"];
@@ -43,127 +39,157 @@ export default function Index() {
   useReveal();
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" style={{ backgroundColor: "var(--surface-0)" }}>
       <Header />
 
-      {/* Hero */}
-      <section className="gradient-hero min-h-screen flex items-center relative overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-purple-600/20 rounded-full blur-3xl animate-float" />
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-pink-600/20 rounded-full blur-3xl animate-float-delayed" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-3xl" />
-        </div>
-        <div className="container mx-auto relative z-10 pt-24 pb-16">
-          <div className="max-w-4xl mx-auto text-center">
-            <Badge className="mb-6 gradient-primary text-white border-0 px-4 py-1.5 text-sm font-medium animate-pulse-glow">
-              🚀 Новый уровень создания сайтов
-            </Badge>
-            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight mb-6 font-['Manrope']">Привлекайте первых клиентов</h1>
-            <p className="max-w-2xl mx-auto mb-10 leading-relaxed text-[#ffffff] text-xl">Сайт для вашего бизнеса за 7 дней — соберем, наполним и научим управлять. Вы сможете принимать заявки клиентов уже на следующий день</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="gradient-primary text-white border-0 hover:opacity-90 text-lg px-8 py-6 font-bold glow-primary">
-                Начать бесплатно
-                <Icon name="ArrowRight" size={20} className="ml-2" />
+      {/* ── HERO ── */}
+      <section className="relative min-h-screen flex items-center overflow-hidden" style={{ backgroundColor: "var(--surface-0)" }}>
+        {/* Grid background */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: "linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)",
+          backgroundSize: "48px 48px"
+        }} />
+        {/* Glow orbs */}
+        <div className="absolute top-1/4 left-1/4 w-[480px] h-[480px] rounded-full opacity-20 blur-[120px]" style={{ background: "var(--brand-purple)" }} />
+        <div className="absolute bottom-1/4 right-1/4 w-[360px] h-[360px] rounded-full opacity-15 blur-[100px]" style={{ background: "var(--brand-pink)" }} />
+
+        <div className="container mx-auto relative z-10 pt-28 pb-20">
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="chip mb-6 mx-auto w-fit">
+              <Icon name="Globe" size={12} />
+              Студия веб-разработки
+            </div>
+
+            <h1 className="text-5xl md:text-[68px] font-black text-white leading-[1.08] mb-6 tracking-tight font-['Manrope']">
+              Сайт, который<br />
+              <span className="gradient-text">привлекает клиентов</span>
+            </h1>
+
+            <p className="text-white/50 text-lg md:text-xl max-w-xl mx-auto mb-10 leading-relaxed">
+              Разрабатываем профессиональные сайты за 7 дней. Наполним контентом, подключим аналитику и платёжные системы.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-3 justify-center mb-12">
+              <Button size="lg" className="gradient-primary text-white border-0 hover:opacity-90 text-base px-8 h-12 font-semibold glow-primary">
+                Получить сайт
+                <Icon name="ArrowRight" size={16} className="ml-2" />
               </Button>
-              <Button size="lg" variant="outline" className="border-white/20 text-white bg-transparent hover:bg-white/10 text-lg px-8 py-6">
-                <Icon name="Play" size={18} className="mr-2" />
-                Смотреть демо
+              <Button size="lg" variant="outline" className="border-white/12 text-white/70 bg-transparent hover:bg-white/6 hover:text-white text-base px-8 h-12">
+                Смотреть работы
               </Button>
             </div>
-            <p className="mt-6 text-white/30 text-sm">
-              Бесплатно 14 дней · Без привязки карты · Отмена в любой момент
-            </p>
+
+            <p className="text-white/25 text-sm">Бесплатная консультация · Фиксированная цена · Передаём все доступы</p>
           </div>
 
-          <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6">
+          {/* Stats */}
+          <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
             {stats.map((stat, i) => (
-              <div key={stat.label} className={`glass rounded-2xl p-6 text-center reveal ${delayMap[i]}`}>
-                <div className="text-3xl font-black text-white mb-1 font-['Manrope']">{stat.value}</div>
-                <div className="text-white/50 text-sm">{stat.label}</div>
+              <div key={stat.label} className={`glass rounded-2xl p-5 text-center reveal ${delayMap[i]}`}>
+                <div className="text-2xl md:text-3xl font-black text-white mb-1 font-['Manrope']">{stat.value}</div>
+                <div className="text-white/40 text-xs font-medium">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
+
+        {/* Bottom fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-32" style={{ background: "linear-gradient(to bottom, transparent, var(--surface-0))" }} />
       </section>
 
-      {/* Features */}
-      <section className="py-24 bg-[#080612]">
+      {/* ── FEATURES ── */}
+      <section className="py-28" style={{ backgroundColor: "var(--surface-1)" }}>
         <div className="container mx-auto">
           <div className="text-center mb-16 reveal">
-            <Badge className="mb-4 bg-purple-500/20 text-purple-300 border-purple-500/30">Возможности</Badge>
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-4 font-['Manrope']">Готовые бизнес-инструменты</h2>
-            <p className="text-white/50 text-lg max-w-2xl mx-auto">Подготовим и настроим на сайте всё, что нужно для успешного привлечения покупателей или клиентов
-и продаж</p>
+            <div className="chip mb-5 mx-auto w-fit">Что входит</div>
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-4 font-['Manrope']">
+              Всё для вашего бизнеса
+            </h2>
+            <p className="text-white/40 text-lg max-w-xl mx-auto">
+              Подготовим и настроим всё необходимое — от дизайна до аналитики
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {features.map((f, i) => (
               <div key={f.title} className={`glass rounded-2xl p-6 card-hover group reveal ${delayMap[i % 3]}`}>
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${f.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                  <Icon name={f.icon} size={22} className="text-white" />
+                <div
+                  className="w-10 h-10 rounded-xl flex items-center justify-center mb-5"
+                  style={{ background: `${f.color}18`, border: `1px solid ${f.color}30` }}
+                >
+                  <Icon name={f.icon} size={18} style={{ color: f.color }} />
                 </div>
-                <h3 className="text-white font-bold text-lg mb-2 font-['Manrope']">{f.title}</h3>
-                <p className="text-white/50 text-sm leading-relaxed">{f.desc}</p>
+                <h3 className="text-white font-bold text-base mb-2 font-['Manrope']">{f.title}</h3>
+                <p className="text-white/40 text-sm leading-relaxed">{f.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Integrations */}
-      <section className="py-24 bg-[#0a0814]">
+      {/* ── HOW IT WORKS ── */}
+      <section className="py-28" style={{ backgroundColor: "var(--surface-0)" }}>
         <div className="container mx-auto">
           <div className="text-center mb-16 reveal">
-            <Badge className="mb-4 bg-pink-500/20 text-pink-300 border-pink-500/30">Интеграции</Badge>
+            <div className="chip mb-5 mx-auto w-fit">Процесс</div>
             <h2 className="text-4xl md:text-5xl font-black text-white mb-4 font-['Manrope']">
-              Подключай <span className="gradient-text">любые сервисы</span>
+              Как мы работаем
             </h2>
-            <p className="text-white/50 text-lg max-w-2xl mx-auto">
-              Яндекс Бизнес, платёжные системы, аналитика — всё настраивается в пару кликов
+            <p className="text-white/40 text-lg max-w-xl mx-auto">
+              Прозрачный процесс без лишних слов
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {integrations.map((item, i) => (
-              <div key={item.name} className={`glass rounded-2xl p-6 card-hover group cursor-pointer reveal ${delayMap[i % 3]}`}>
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                  <Icon name={item.icon} size={22} className="text-white" />
-                </div>
-                <h3 className="text-white font-bold text-lg mb-2 font-['Manrope']">{item.name}</h3>
-                <p className="text-white/50 text-sm leading-relaxed">{item.desc}</p>
-                <div className="mt-4 flex items-center gap-2 text-purple-400 text-sm font-medium group-hover:gap-3 transition-all">
-                  <span>Подробнее</span>
-                  <Icon name="ArrowRight" size={14} />
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {steps.map((step, i) => (
+              <div key={step.num} className={`reveal ${delayMap[i]}`}>
+                <div className="glass rounded-2xl p-7 h-full relative">
+                  <span className="text-5xl font-black font-['Manrope'] gradient-text opacity-30 mb-4 block leading-none">{step.num}</span>
+                  <h3 className="text-white font-bold text-lg mb-3 font-['Manrope']">{step.title}</h3>
+                  <p className="text-white/40 text-sm leading-relaxed">{step.desc}</p>
                 </div>
               </div>
             ))}
           </div>
+
+          <div className="mt-14 text-center reveal">
+            <Button size="lg" className="gradient-primary text-white border-0 hover:opacity-90 text-base px-8 h-12 font-semibold glow-primary">
+              Начать проект
+              <Icon name="ArrowRight" size={16} className="ml-2" />
+            </Button>
+          </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-24 bg-[#080612]">
+      {/* ── TESTIMONIALS ── */}
+      <section className="py-28" style={{ backgroundColor: "var(--surface-1)" }}>
         <div className="container mx-auto">
           <div className="text-center mb-16 reveal">
-            <Badge className="mb-4 bg-blue-500/20 text-blue-300 border-blue-500/30">Отзывы</Badge>
+            <div className="chip mb-5 mx-auto w-fit">Отзывы</div>
             <h2 className="text-4xl md:text-5xl font-black text-white mb-4 font-['Manrope']">
-              Что говорят <span className="gradient-text">клиенты</span>
+              Что говорят клиенты
             </h2>
+            <p className="text-white/40 text-lg max-w-xl mx-auto">
+              Реальные результаты от реальных людей
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {testimonials.map((t, i) => (
-              <div key={t.name} className={`glass rounded-2xl p-6 card-hover reveal ${delayMap[i]}`}>
+              <div key={t.name} className={`glass rounded-2xl p-6 reveal ${delayMap[i]}`}>
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, j) => (
-                    <Icon key={j} name="Star" size={16} className="text-yellow-400 fill-yellow-400" />
+                    <Icon key={j} name="Star" size={14} className="text-yellow-400" />
                   ))}
                 </div>
-                <p className="text-white/70 text-sm leading-relaxed mb-6">"{t.text}"</p>
+                <p className="text-white/60 text-sm leading-relaxed mb-5">"{t.text}"</p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full gradient-primary flex items-center justify-center text-white text-sm font-bold">
+                  <div className="w-9 h-9 rounded-full gradient-primary flex items-center justify-center text-white text-xs font-bold shrink-0">
                     {t.avatar}
                   </div>
                   <div>
-                    <div className="text-white font-semibold text-sm">{t.name}</div>
-                    <div className="text-white/40 text-xs">{t.role}</div>
+                    <div className="text-white text-sm font-semibold font-['Manrope']">{t.name}</div>
+                    <div className="text-white/35 text-xs">{t.role}</div>
                   </div>
                 </div>
               </div>
@@ -172,25 +198,32 @@ export default function Index() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 animated-gradient">
-        <div className="container mx-auto text-center reveal">
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-6 font-['Manrope']">
-            Готов запустить сайт мечты?
-          </h2>
-          <p className="text-white/80 text-xl mb-10 max-w-xl mx-auto">
-            Присоединись к 12 000+ предпринимателей, которые уже растут с SiteSphere
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-purple-700 hover:bg-white/90 text-lg px-8 py-6 font-bold">
-              Создать сайт бесплатно
-              <Icon name="ArrowRight" size={20} className="ml-2" />
-            </Button>
-            <Link to="/pricing">
-              <Button size="lg" variant="outline" className="border-white/40 text-white bg-transparent hover:bg-white/10 text-lg px-8 py-6">
-                Посмотреть цены
-              </Button>
-            </Link>
+      {/* ── CTA ── */}
+      <section className="py-28" style={{ backgroundColor: "var(--surface-0)" }}>
+        <div className="container mx-auto">
+          <div className="relative glass-md rounded-3xl p-12 md:p-16 text-center overflow-hidden reveal">
+            <div className="absolute inset-0 opacity-10 rounded-3xl" style={{ background: "linear-gradient(135deg, var(--brand-purple), var(--brand-pink))" }} />
+            <div className="relative z-10">
+              <div className="chip mb-6 mx-auto w-fit">Старт</div>
+              <h2 className="text-4xl md:text-5xl font-black text-white mb-4 font-['Manrope']">
+                Готовы запустить<br />
+                <span className="gradient-text">ваш сайт?</span>
+              </h2>
+              <p className="text-white/45 text-lg mb-10 max-w-lg mx-auto">
+                Оставьте заявку — перезвоним в течение 30 минут и расскажем, как это работает
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <Button size="lg" className="gradient-primary text-white border-0 hover:opacity-90 text-base px-10 h-12 font-semibold glow-primary">
+                  Оставить заявку
+                  <Icon name="ArrowRight" size={16} className="ml-2" />
+                </Button>
+                <Link to="/contacts">
+                  <Button size="lg" variant="outline" className="border-white/12 text-white/60 bg-transparent hover:bg-white/6 hover:text-white text-base px-8 h-12">
+                    Написать нам
+                  </Button>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
