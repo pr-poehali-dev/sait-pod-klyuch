@@ -41,17 +41,6 @@ const services = [
 ];
 
 
-const steps = [
-  { num: "01", title: "Заявка", desc: "Оставляете заявку — менеджер свяжется в течение 30 минут и уточнит детали." },
-  { num: "02", title: "Разработка", desc: "Создаём дизайн, верстаем, подключаем нужные сервисы. Вы видите прогресс каждый день." },
-  { num: "03", title: "Запуск", desc: "Публикуем сайт, настраиваем SEO, передаём все доступы. Вы уже принимаете заявки." },
-];
-
-const testimonials = [
-  { name: "Анна Смирнова", role: "Владелец кофейни", text: "За 7 дней получила сайт с онлайн-записью и Яндекс.Картами. Клиенты нашли нас уже на следующий день.", avatar: "АС" },
-  { name: "Дмитрий Козлов", role: "Фитнес-тренер", text: "Подключили оплату через ЮKassa за один день. Продаю курсы прямо с сайта — выручка выросла в 3 раза.", avatar: "ДК" },
-  { name: "Марина Петрова", role: "Интернет-магазин", text: "Метрика показала узкое место — исправили за день. Конверсия выросла на 40% за неделю.", avatar: "МП" },
-];
 
 const delayMap = ["delay-100", "delay-200", "delay-300", "delay-400", "delay-500", "delay-600"];
 
@@ -157,77 +146,6 @@ export default function Index() {
                       <Icon name="ArrowRight" size={14} className="inline ml-1.5" />
                     </button>
                   </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── HOW IT WORKS ── */}
-      <section className="py-28" style={{ backgroundColor: "var(--surface-0)" }}>
-        <div className="container mx-auto">
-          <div className="text-center mb-16 reveal">
-            <div className="chip mb-5 mx-auto w-fit">Процесс</div>
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-4 font-['Manrope']">
-              Как мы работаем
-            </h2>
-            <p className="text-white/40 text-lg max-w-xl mx-auto">
-              Прозрачный процесс без лишних слов
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {steps.map((step, i) => (
-              <div key={step.num} className={`reveal ${delayMap[i]}`}>
-                <div className="glass rounded-2xl p-7 h-full relative">
-                  <span className="text-5xl font-black font-['Manrope'] gradient-text opacity-30 mb-4 block leading-none">{step.num}</span>
-                  <h3 className="text-white font-bold text-lg mb-3 font-['Manrope']">{step.title}</h3>
-                  <p className="text-white/40 text-sm leading-relaxed">{step.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-14 text-center reveal">
-            <Button size="lg" className="gradient-primary text-white border-0 hover:opacity-90 text-base px-8 h-12 font-semibold glow-primary">
-              Начать проект
-              <Icon name="ArrowRight" size={16} className="ml-2" />
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* ── TESTIMONIALS ── */}
-      <section className="py-28" style={{ backgroundColor: "var(--surface-1)" }}>
-        <div className="container mx-auto">
-          <div className="text-center mb-16 reveal">
-            <div className="chip mb-5 mx-auto w-fit">Отзывы</div>
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-4 font-['Manrope']">
-              Что говорят клиенты
-            </h2>
-            <p className="text-white/40 text-lg max-w-xl mx-auto">
-              Реальные результаты от реальных людей
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {testimonials.map((t, i) => (
-              <div key={t.name} className={`glass rounded-2xl p-6 reveal ${delayMap[i]}`}>
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, j) => (
-                    <Icon key={j} name="Star" size={14} className="text-yellow-400" />
-                  ))}
-                </div>
-                <p className="text-white/60 text-sm leading-relaxed mb-5">"{t.text}"</p>
-                <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full gradient-primary flex items-center justify-center text-white text-xs font-bold shrink-0">
-                    {t.avatar}
-                  </div>
-                  <div>
-                    <div className="text-white text-sm font-semibold font-['Manrope']">{t.name}</div>
-                    <div className="text-white/35 text-xs">{t.role}</div>
-                  </div>
                 </div>
               </div>
             ))}
