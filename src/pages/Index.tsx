@@ -10,12 +10,12 @@ const services = [
   {
     href: "/services/landing",
     icon: "Layout",
-    title: "Лендинг / Визитка",
-    subtitle: "Сайт-визитка или магазин",
-    price: "от 15 000 ₽",
+    title: "Стандарт",
+    subtitle: "Сайт под ключ",
+    price: "",
     period: "7 дней",
     color: "#6c47ff",
-    features: ["Лендинг, визитка или небольшой магазин", "Уникальный дизайн под бренд", "Мобильная версия", "Форма заявки", "Быстрая загрузка"],
+    features: ["Готовый сайт за 7 дней: дизайн, наполнение и запуск — сделаем всё за вас, чтобы вы быстрее начали принимать заявки"],
   },
   {
     href: "/services/setup",
@@ -167,12 +167,17 @@ export default function Index() {
                   ))}
                 </ul>
                 <div className="pt-5 border-t border-white/8">
-                  <div className="flex items-end justify-between mb-4">
-                    <div>
+                  {s.price && (
+                    <div className="mb-4">
                       <div className="text-2xl font-black text-white font-['Manrope']">{s.price}</div>
                       <div className="text-white/35 text-xs mt-0.5">Срок: {s.period}</div>
                     </div>
-                  </div>
+                  )}
+                  {!s.price && (
+                    <div className="mb-4">
+                      <div className="text-white/35 text-xs">Срок: {s.period}</div>
+                    </div>
+                  )}
                   <Link to={s.href} className="block">
                     <button className="w-full h-10 rounded-xl text-sm font-semibold transition-all hover:opacity-90" style={{ background: `${s.color}18`, color: s.color, border: `1px solid ${s.color}30` }}>
                       Подробнее
