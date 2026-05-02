@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -5,6 +6,15 @@ import HeroIllustration from "@/components/HeroIllustration";
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
 import { useReveal } from "@/hooks/useReveal";
+
+const faq = [
+  { q: "Сколько стоит сайт?", a: "Стоимость зависит от задачи. Лендинг или визитка — от 15 000 ₽, магазин под ключ — от 35 000 ₽. Продвижение в Яндексе обсуждается отдельно. Напишите нам — бесплатно рассчитаем цену под вашу задачу." },
+  { q: "Сколько времени занимает разработка?", a: "Стандартный сайт — 7 рабочих дней. Интернет-магазин — до 14 дней. Срок фиксируется в договоре, и мы его соблюдаем." },
+  { q: "Что если сайт мне не понравится?", a: "Перед началом работы мы согласовываем структуру и стиль. В процессе вы видите макет и вносите правки. Сдаём только то, что вам нравится." },
+  { q: "Я не разбираюсь в технологиях — справлюсь?", a: "Именно для таких клиентов мы и работаем. После сдачи проекта проводим обучение и даём подробную инструкцию — как обновлять контент, смотреть статистику и управлять сайтом." },
+  { q: "Вы занимаетесь продвижением сайта?", a: "Да. Мы настраиваем SEO, подключаем Яндекс Метрику и Яндекс Бизнес, а также запускаем рекламу в Яндексе. Это можно заказать отдельно или в составе пакета." },
+  { q: "Что происходит после запуска?", a: "30 дней бесплатной поддержки: правки, вопросы, консультации. После — по договорённости. Вы не остаётесь один на один с сайтом." },
+];
 
 const services = [
   {
@@ -43,6 +53,28 @@ const services = [
 
 
 const delayMap = ["delay-100", "delay-200", "delay-300", "delay-400", "delay-500", "delay-600"];
+
+function FaqItem({ item }: { item: { q: string; a: string } }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="glass rounded-2xl overflow-hidden">
+      <button
+        className="w-full text-left px-6 py-5 flex items-center justify-between gap-4"
+        onClick={() => setOpen(!open)}
+      >
+        <span className="text-white font-medium text-sm leading-snug">{item.q}</span>
+        <div className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-all" style={{ background: open ? "rgba(108,71,255,0.2)" : "rgba(255,255,255,0.05)" }}>
+          <Icon name={open ? "Minus" : "Plus"} size={14} style={{ color: open ? "#a78bfa" : "rgba(255,255,255,0.4)" }} />
+        </div>
+      </button>
+      {open && (
+        <div className="px-6 pb-5">
+          <p className="text-white/50 text-sm leading-relaxed">{item.a}</p>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function Index() {
   useReveal();
@@ -149,6 +181,38 @@ export default function Index() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section className="py-28" style={{ backgroundColor: "var(--surface-1)" }}>
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            {/* Left */}
+            <div className="reveal-left lg:sticky lg:top-28">
+              <div className="chip mb-5 w-fit">Вопрос — ответ</div>
+              <h2 className="text-4xl md:text-5xl font-black text-white mb-5 font-['Manrope'] tracking-tight">
+                Отвечаем на<br />
+                <span className="gradient-text">частые вопросы</span>
+              </h2>
+              <p className="text-white/40 text-lg leading-relaxed mb-8">
+                Не нашли ответ? Напишите нам — ответим в течение 30 минут.
+              </p>
+              <Link to="/contacts">
+                <Button className="gradient-primary text-white border-0 h-11 px-6 font-semibold glow-sm">
+                  Задать вопрос
+                  <Icon name="ArrowRight" size={15} className="ml-2" />
+                </Button>
+              </Link>
+            </div>
+
+            {/* Right: accordion */}
+            <div className="space-y-3 reveal-right">
+              {faq.map((item, idx) => (
+                <FaqItem key={idx} item={item} />
+              ))}
+            </div>
           </div>
         </div>
       </section>
