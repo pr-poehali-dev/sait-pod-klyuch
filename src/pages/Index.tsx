@@ -16,7 +16,7 @@ const features = [
 ];
 
 const stats = [
-  { value: "12 000+", label: "Сайтов создано" },
+  { value: "Быстрый старт", label: "Запуск за 7 дней" },
   { value: "98%", label: "Довольных клиентов" },
   { value: "4.9★", label: "Средняя оценка" },
   { value: "7 дней", label: "Средний срок" },
