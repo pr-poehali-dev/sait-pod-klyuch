@@ -30,13 +30,13 @@ const services = [
   },
   {
     href: "/services/shop",
-    icon: "ShoppingBag",
-    title: "Магазин под ключ",
-    subtitle: "Продажи онлайн",
-    price: "от 35 000 ₽",
+    icon: "Rocket",
+    title: "Максимум",
+    subtitle: "Полный пакет",
+    price: "",
     period: "14 дней",
     color: "#ff3fa4",
-    features: ["Приём оплаты (ЮKassa / Robokassa)", "Каталог товаров", "Домен в подарок", "Логотип", "SEO-настройка"],
+    features: ["Максимальный эффект: Сайт под ключ + SEO + продвижение. Клиенты ищут — находят, заходят — оставляют заявки и покупают."],
   },
 ];
 
