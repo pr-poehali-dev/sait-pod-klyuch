@@ -59,9 +59,7 @@ export default function Index() {
               🚀 Новый уровень создания сайтов
             </Badge>
             <h1 className="text-5xl md:text-7xl font-black text-white leading-tight mb-6 font-['Manrope']">Привлекайте первых клиентов</h1>
-            <p className="text-xl text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed">
-              Профессиональная платформа с интеграцией Яндекс Бизнеса, платёжных систем и аналитики. Запусти сайт за 30 минут.
-            </p>
+            <p className="max-w-2xl mx-auto mb-10 leading-relaxed text-[#ffffff] text-xl">Сайт для вашего бизнеса за 7 дней — соберем, наполним и научим управлять. Вы сможете принимать заявки клиентов уже на следующий день</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="gradient-primary text-white border-0 hover:opacity-90 text-lg px-8 py-6 font-bold glow-primary">
                 Начать бесплатно
