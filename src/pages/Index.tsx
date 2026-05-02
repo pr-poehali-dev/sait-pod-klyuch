@@ -19,14 +19,14 @@ const services = [
   },
   {
     href: "/services/setup",
-    icon: "Settings",
-    title: "Всё подключено",
-    subtitle: "Настройка и интеграции",
-    price: "от 5 000 ₽",
-    period: "2 дня",
+    icon: "TrendingUp",
+    title: "Сайт под ключ + Яндекс Реклама",
+    subtitle: "Продвижение в поиске",
+    price: "",
+    period: "7 дней + 1 год",
     color: "#00d4ff",
     popular: true,
-    features: ["Домен и SSL", "Яндекс Метрика", "Яндекс Бизнес", "Telegram-уведомления", "Инструкция по использованию"],
+    features: ["Чтобы вас находили в поиске: настроим SEO, соберём семантику, подготовим тексты и подключим автопродвижение на год."],
   },
   {
     href: "/services/shop",
@@ -143,7 +143,7 @@ export default function Index() {
             {services.map((s, i) => (
               <div
                 key={s.href}
-                className={`glass rounded-2xl p-7 flex flex-col relative card-hover reveal ${delayMap[i]}`}
+                className={`glass rounded-2xl p-7 flex flex-col relative card-hover reveal aspect-square ${delayMap[i]}`}
                 style={s.popular ? { borderColor: `${s.color}40`, boxShadow: `0 0 32px ${s.color}20` } : {}}
               >
                 {s.popular && (
