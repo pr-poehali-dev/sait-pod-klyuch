@@ -69,12 +69,12 @@ export default function Index() {
       <Header />
 
       {/* ── HERO ── */}
-      <section className="relative min-h-screen flex items-center overflow-hidden" style={{ backgroundColor: "var(--surface-0)" }}>
+      <section className="relative flex items-center overflow-hidden" style={{ backgroundColor: "var(--surface-0)", minHeight: "calc(100vh - 160px)" }}>
         {/* Glow orbs */}
         <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] rounded-full opacity-15 blur-[130px] pointer-events-none" style={{ background: "var(--brand-purple)" }} />
         <div className="absolute bottom-1/4 right-1/3 w-[300px] h-[300px] rounded-full opacity-10 blur-[100px] pointer-events-none" style={{ background: "var(--brand-pink)" }} />
 
-        <div className="container mx-auto relative z-10 pt-28 pb-20">
+        <div className="container mx-auto relative z-10 pt-28 pb-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left: text */}
             <div>
@@ -112,33 +112,12 @@ export default function Index() {
             </div>
           </div>
 
-          {/* Stats */}
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
-            {stats.map((stat, i) => (
-              <div key={stat.label} className={`glass rounded-2xl p-5 text-center reveal ${delayMap[i]}`}>
-                <div className="text-2xl md:text-3xl font-black text-white mb-1 font-['Manrope']">{stat.value}</div>
-                <div className="text-white/40 text-xs font-medium">{stat.label}</div>
-              </div>
-            ))}
-          </div>
         </div>
-
-        <div className="absolute bottom-0 left-0 right-0 h-28 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent, var(--surface-0))" }} />
       </section>
 
       {/* ── SERVICES ── */}
-      <section className="py-28" style={{ backgroundColor: "var(--surface-1)" }}>
+      <section className="pb-24 pt-0" style={{ backgroundColor: "var(--surface-0)" }}>
         <div className="container mx-auto">
-          <div className="text-center mb-16 reveal">
-            <div className="chip mb-5 mx-auto w-fit">Услуги</div>
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-4 font-['Manrope']">
-              Выберите подходящий пакет
-            </h2>
-            <p className="text-white/40 text-lg max-w-xl mx-auto">
-              Прозрачная цена, фиксированный срок, передаём все доступы
-            </p>
-          </div>
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto">
             {services.map((s, i) => (
               <div
