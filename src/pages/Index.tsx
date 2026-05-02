@@ -58,10 +58,8 @@ export default function Index() {
             <Badge className="mb-6 gradient-primary text-white border-0 px-4 py-1.5 text-sm font-medium animate-pulse-glow">
               🚀 Новый уровень создания сайтов
             </Badge>
-            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight mb-6 font-['Manrope']">
-              Создавай сайты,{" "}
-              <span className="gradient-text">которые продают</span>
-            </h1>
+            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight mb-6 font-['Manrope']">Сайт под ключ
+Привлекайте клиентов</h1>
             <p className="text-xl text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed">
               Профессиональная платформа с интеграцией Яндекс Бизнеса, платёжных систем и аналитики. Запусти сайт за 30 минут.
             </p>
