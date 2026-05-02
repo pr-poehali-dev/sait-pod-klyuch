@@ -91,13 +91,9 @@ export default function Index() {
         <div className="container mx-auto">
           <div className="text-center mb-16 reveal">
             <Badge className="mb-4 bg-purple-500/20 text-purple-300 border-purple-500/30">Возможности</Badge>
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-4 font-['Manrope']">
-              Всё что нужно для{" "}
-              <span className="gradient-text">успешного сайта</span>
-            </h2>
-            <p className="text-white/50 text-lg max-w-2xl mx-auto">
-              Мы собрали лучшие инструменты в одной платформе, чтобы вы сосредоточились на бизнесе
-            </p>
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-4 font-['Manrope']">Готовые бизнес-инструменты</h2>
+            <p className="text-white/50 text-lg max-w-2xl mx-auto">Подготовим и настроим на сайте всё, что нужно для успешного привлечения покупателей или клиентов
+и продаж</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((f, i) => (
