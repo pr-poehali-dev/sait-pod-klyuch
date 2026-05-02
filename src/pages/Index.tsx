@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import HeroIllustration from "@/components/HeroIllustration";
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
 import { useReveal } from "@/hooks/useReveal";
@@ -44,46 +45,50 @@ export default function Index() {
 
       {/* ── HERO ── */}
       <section className="relative min-h-screen flex items-center overflow-hidden" style={{ backgroundColor: "var(--surface-0)" }}>
-        {/* Grid background */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: "linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)",
-          backgroundSize: "48px 48px"
-        }} />
         {/* Glow orbs */}
-        <div className="absolute top-1/4 left-1/4 w-[480px] h-[480px] rounded-full opacity-20 blur-[120px]" style={{ background: "var(--brand-purple)" }} />
-        <div className="absolute bottom-1/4 right-1/4 w-[360px] h-[360px] rounded-full opacity-15 blur-[100px]" style={{ background: "var(--brand-pink)" }} />
+        <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] rounded-full opacity-15 blur-[130px] pointer-events-none" style={{ background: "var(--brand-purple)" }} />
+        <div className="absolute bottom-1/4 right-1/3 w-[300px] h-[300px] rounded-full opacity-10 blur-[100px] pointer-events-none" style={{ background: "var(--brand-pink)" }} />
 
         <div className="container mx-auto relative z-10 pt-28 pb-20">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="chip mb-6 mx-auto w-fit">
-              <Icon name="Globe" size={12} />
-              Студия веб-разработки
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left: text */}
+            <div>
+              <div className="chip mb-6 w-fit">
+                <Icon name="Globe" size={12} />
+                Студия веб-разработки
+              </div>
+              <h1 className="text-5xl md:text-[60px] font-black text-white leading-[1.08] mb-6 tracking-tight font-['Manrope']">
+                Сайт, который<br />
+                <span className="gradient-text">привлекает клиентов</span>
+              </h1>
+              <p className="text-white/50 text-lg max-w-md mb-10 leading-relaxed">
+                Разрабатываем профессиональные сайты за 7 дней. Наполним контентом, подключим аналитику и платёжные системы.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 mb-10">
+                <Button size="lg" className="gradient-primary text-white border-0 hover:opacity-90 text-base px-8 h-12 font-semibold glow-primary">
+                  Получить сайт
+                  <Icon name="ArrowRight" size={16} className="ml-2" />
+                </Button>
+                <Link to="/portfolio">
+                  <Button size="lg" variant="outline" className="border-white/12 text-white/70 bg-transparent hover:bg-white/6 hover:text-white text-base px-8 h-12">
+                    Смотреть работы
+                  </Button>
+                </Link>
+              </div>
+              <p className="text-white/25 text-sm">Бесплатная консультация · Фиксированная цена · Передаём все доступы</p>
             </div>
 
-            <h1 className="text-5xl md:text-[68px] font-black text-white leading-[1.08] mb-6 tracking-tight font-['Manrope']">
-              Сайт, который<br />
-              <span className="gradient-text">привлекает клиентов</span>
-            </h1>
-
-            <p className="text-white/50 text-lg md:text-xl max-w-xl mx-auto mb-10 leading-relaxed">
-              Разрабатываем профессиональные сайты за 7 дней. Наполним контентом, подключим аналитику и платёжные системы.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-3 justify-center mb-12">
-              <Button size="lg" className="gradient-primary text-white border-0 hover:opacity-90 text-base px-8 h-12 font-semibold glow-primary">
-                Получить сайт
-                <Icon name="ArrowRight" size={16} className="ml-2" />
-              </Button>
-              <Button size="lg" variant="outline" className="border-white/12 text-white/70 bg-transparent hover:bg-white/6 hover:text-white text-base px-8 h-12">
-                Смотреть работы
-              </Button>
+            {/* Right: illustration */}
+            <div className="relative hidden lg:flex items-center justify-center">
+              <div className="absolute inset-0 rounded-3xl opacity-10" style={{ background: "radial-gradient(circle at 50% 50%, var(--brand-purple), transparent 70%)" }} />
+              <div className="w-full max-w-[520px]">
+                <HeroIllustration />
+              </div>
             </div>
-
-            <p className="text-white/25 text-sm">Бесплатная консультация · Фиксированная цена · Передаём все доступы</p>
           </div>
 
           {/* Stats */}
-          <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
             {stats.map((stat, i) => (
               <div key={stat.label} className={`glass rounded-2xl p-5 text-center reveal ${delayMap[i]}`}>
                 <div className="text-2xl md:text-3xl font-black text-white mb-1 font-['Manrope']">{stat.value}</div>
@@ -93,8 +98,7 @@ export default function Index() {
           </div>
         </div>
 
-        {/* Bottom fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32" style={{ background: "linear-gradient(to bottom, transparent, var(--surface-0))" }} />
+        <div className="absolute bottom-0 left-0 right-0 h-28 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent, var(--surface-0))" }} />
       </section>
 
       {/* ── FEATURES ── */}

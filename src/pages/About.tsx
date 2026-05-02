@@ -1,84 +1,84 @@
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
 import { useReveal } from "@/hooks/useReveal";
 
 const team = [
-  { name: "Алексей Волков", role: "Основатель & CEO", initials: "АВ", color: "from-purple-500 to-pink-500" },
-  { name: "Екатерина Морозова", role: "Директор по продукту", initials: "ЕМ", color: "from-blue-500 to-cyan-400" },
-  { name: "Иван Новиков", role: "Технический директор", initials: "ИН", color: "from-green-400 to-teal-500" },
-  { name: "Ольга Соколова", role: "Директор по маркетингу", initials: "ОС", color: "from-orange-400 to-red-500" },
+  { name: "Алексей Волков", role: "Основатель & CEO", initials: "АВ", color: "#6c47ff" },
+  { name: "Екатерина Морозова", role: "Директор по продукту", initials: "ЕМ", color: "#00d4ff" },
+  { name: "Иван Новиков", role: "Технический директор", initials: "ИН", color: "#22c55e" },
+  { name: "Ольга Соколова", role: "Директор по маркетингу", initials: "ОС", color: "#f97316" },
 ];
 
 const values = [
-  { icon: "Heart", title: "Клиент на первом месте", desc: "Каждое решение принимается с мыслью о вашем успехе и удобстве." },
-  { icon: "Rocket", title: "Скорость и качество", desc: "Не жертвуем качеством ради скорости. Оба критерия одинаково важны." },
-  { icon: "Globe", title: "Открытость", desc: "Прозрачные цены, честная коммуникация, без скрытых условий." },
-  { icon: "TrendingUp", title: "Постоянный рост", desc: "Мы регулярно обновляем платформу, добавляем функции по запросам." },
+  { icon: "Heart", title: "Клиент на первом месте", desc: "Каждое решение принимается с мыслью о вашем успехе и удобстве.", color: "#ff3fa4" },
+  { icon: "Rocket", title: "Скорость и качество", desc: "Не жертвуем качеством ради скорости. Оба критерия одинаково важны.", color: "#6c47ff" },
+  { icon: "Globe", title: "Открытость", desc: "Прозрачные цены, честная коммуникация, без скрытых условий.", color: "#00d4ff" },
+  { icon: "TrendingUp", title: "Постоянный рост", desc: "Регулярно совершенствуем подходы и следим за трендами отрасли.", color: "#22c55e" },
 ];
 
 const milestones = [
-  { year: "2020", title: "Основание компании", desc: "Начали с идеи сделать создание сайтов доступным для каждого." },
-  { year: "2021", title: "1000 клиентов", desc: "Первая тысяча предпринимателей доверила нам свои сайты." },
-  { year: "2022", title: "Интеграции", desc: "Запустили интеграции с Яндекс Бизнесом и платёжными системами." },
-  { year: "2023", title: "10 000 сайтов", desc: "Отметка 10 000 активных сайтов на платформе." },
-  { year: "2024", title: "ИИ-конструктор", desc: "Запуск интеллектуального помощника по созданию сайтов." },
+  { year: "2020", title: "Основание компании", desc: "Начали с идеи делать профессиональные сайты доступными для малого бизнеса." },
+  { year: "2021", title: "100 проектов", desc: "Первая сотня предпринимателей доверила нам разработку своих сайтов." },
+  { year: "2022", title: "Интеграции", desc: "Запустили подключение Яндекс Бизнеса и популярных платёжных систем." },
+  { year: "2023", title: "1 000 сайтов", desc: "Отметка 1000 успешно запущенных проектов." },
+  { year: "2024", title: "Команда 20+ человек", desc: "Расширили команду, сократили сроки разработки до 7 дней." },
 ];
+
+const delayMap = ["delay-100", "delay-200", "delay-300", "delay-400", "delay-500"];
 
 export default function About() {
   useReveal();
 
   return (
-    <div className="min-h-screen bg-[#080612]">
+    <div className="min-h-screen" style={{ backgroundColor: "var(--surface-0)" }}>
       <Header />
 
       {/* Hero */}
-      <section className="gradient-hero pt-32 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-1/4 w-64 h-64 bg-purple-600/20 rounded-full blur-3xl animate-float" />
-          <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-pink-600/20 rounded-full blur-3xl animate-float-delayed" />
-        </div>
+      <section className="relative pt-32 pb-20 overflow-hidden" style={{ backgroundColor: "var(--surface-0)" }}>
+        <div className="absolute top-1/3 right-1/4 w-[350px] h-[350px] rounded-full opacity-12 blur-[120px] pointer-events-none" style={{ background: "var(--brand-purple)" }} />
         <div className="container mx-auto relative z-10 text-center">
-          <Badge className="mb-6 gradient-primary text-white border-0 px-4 py-1.5">О нас</Badge>
-          <h1 className="text-5xl md:text-6xl font-black text-white mb-6 font-['Manrope']">
-            Мы делаем интернет{" "}
-            <span className="gradient-text">доступным</span>
+          <div className="chip mb-6 mx-auto w-fit">О нас</div>
+          <h1 className="text-5xl md:text-6xl font-black text-white mb-6 font-['Manrope'] tracking-tight">
+            Делаем сайты, которые<br />
+            <span className="gradient-text">приносят клиентов</span>
           </h1>
-          <p className="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
-            SiteSphere — платформа, которая даёт малому бизнесу инструменты крупных корпораций. Без кода, без сложностей, с максимальным результатом.
+          <p className="text-lg text-white/45 max-w-xl mx-auto leading-relaxed">
+            AltDel — студия веб-разработки для малого и среднего бизнеса. Без шаблонов, без лишних слов, с фиксированными сроками.
           </p>
         </div>
       </section>
 
       {/* Mission */}
-      <section className="py-20 bg-[#0a0814]">
+      <section className="py-24" style={{ backgroundColor: "var(--surface-1)" }}>
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="reveal-left">
-              <Badge className="mb-4 bg-purple-500/20 text-purple-300 border-purple-500/30">Миссия</Badge>
-              <h2 className="text-4xl font-black text-white mb-6 font-['Manrope']">Почему мы это делаем</h2>
-              <p className="text-white/60 leading-relaxed mb-6">
-                Миллионы предпринимателей теряют клиентов из-за отсутствия качественного сайта. Мы верим, что каждый бизнес заслуживает профессионального онлайн-присутствия.
+              <div className="chip mb-5 w-fit">Миссия</div>
+              <h2 className="text-4xl font-black text-white mb-6 font-['Manrope'] tracking-tight">Почему мы это делаем</h2>
+              <p className="text-white/50 leading-relaxed mb-5 text-[15px]">
+                Большинство малых предприятий теряют клиентов из-за устаревшего или некачественного сайта. Мы исправляем это — делаем разработку быстрой, понятной и доступной.
               </p>
-              <p className="text-white/60 leading-relaxed mb-8">
-                Наша платформа позволяет создать сайт с нуля за 30 минут, подключить оплату, настроить аналитику и синхронизировать данные с Яндекс Бизнесом — без разработчиков.
+              <p className="text-white/50 leading-relaxed mb-8 text-[15px]">
+                Наш подход: фиксированный срок 7 дней, прозрачное ценообразование, передача всех доступов после сдачи проекта.
               </p>
-              <Button className="gradient-primary text-white border-0 font-semibold">
-                Начать бесплатно
-                <Icon name="ArrowRight" size={18} className="ml-2" />
-              </Button>
+              <Link to="/contacts">
+                <Button className="gradient-primary text-white border-0 font-semibold h-11 px-6 glow-sm">
+                  Обсудить проект
+                  <Icon name="ArrowRight" size={16} className="ml-2" />
+                </Button>
+              </Link>
             </div>
             <div className="grid grid-cols-2 gap-4 reveal-right">
               {values.map((v) => (
                 <div key={v.title} className="glass rounded-2xl p-5 card-hover">
-                  <div className="w-10 h-10 rounded-xl gradient-primary flex items-center justify-center mb-3">
-                    <Icon name={v.icon} size={18} className="text-white" />
+                  <div className="w-9 h-9 rounded-xl flex items-center justify-center mb-3" style={{ background: `${v.color}18`, border: `1px solid ${v.color}30` }}>
+                    <Icon name={v.icon} size={16} style={{ color: v.color }} />
                   </div>
-                  <h3 className="text-white font-bold text-sm mb-2 font-['Manrope']">{v.title}</h3>
-                  <p className="text-white/50 text-xs leading-relaxed">{v.desc}</p>
+                  <h3 className="text-white font-bold text-sm mb-1.5 font-['Manrope']">{v.title}</h3>
+                  <p className="text-white/40 text-xs leading-relaxed">{v.desc}</p>
                 </div>
               ))}
             </div>
@@ -87,26 +87,26 @@ export default function About() {
       </section>
 
       {/* Timeline */}
-      <section className="py-20 bg-[#080612]">
+      <section className="py-24" style={{ backgroundColor: "var(--surface-0)" }}>
         <div className="container mx-auto">
           <div className="text-center mb-16 reveal">
-            <Badge className="mb-4 bg-blue-500/20 text-blue-300 border-blue-500/30">История</Badge>
-            <h2 className="text-4xl font-black text-white font-['Manrope']">Наш путь</h2>
+            <div className="chip mb-5 mx-auto w-fit">История</div>
+            <h2 className="text-4xl font-black text-white font-['Manrope'] tracking-tight">Наш путь</h2>
           </div>
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-2xl mx-auto space-y-4">
             {milestones.map((m, idx) => (
-              <div key={m.year} className={`flex gap-6 mb-8 last:mb-0 reveal delay-${idx * 100 + 100}`}>
-                <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full gradient-primary flex items-center justify-center text-white font-bold text-xs flex-shrink-0">
+              <div key={m.year} className={`flex gap-5 reveal ${delayMap[idx]}`}>
+                <div className="flex flex-col items-center shrink-0">
+                  <div className="w-11 h-11 rounded-full gradient-primary flex items-center justify-center text-white font-bold text-[11px]">
                     {m.year}
                   </div>
                   {idx < milestones.length - 1 && (
-                    <div className="w-0.5 h-full bg-gradient-to-b from-purple-500/50 to-transparent mt-2" />
+                    <div className="w-px flex-1 mt-2" style={{ background: "linear-gradient(to bottom, rgba(108,71,255,0.4), transparent)" }} />
                   )}
                 </div>
-                <div className="glass rounded-2xl p-5 flex-1 mb-4">
-                  <h3 className="text-white font-bold mb-1 font-['Manrope']">{m.title}</h3>
-                  <p className="text-white/50 text-sm">{m.desc}</p>
+                <div className="glass rounded-2xl p-5 flex-1 mb-2">
+                  <h3 className="text-white font-bold mb-1 font-['Manrope'] text-sm">{m.title}</h3>
+                  <p className="text-white/40 text-sm">{m.desc}</p>
                 </div>
               </div>
             ))}
@@ -115,22 +115,23 @@ export default function About() {
       </section>
 
       {/* Team */}
-      <section className="py-20 bg-[#0a0814]">
+      <section className="py-24" style={{ backgroundColor: "var(--surface-1)" }}>
         <div className="container mx-auto">
           <div className="text-center mb-16 reveal">
-            <Badge className="mb-4 bg-pink-500/20 text-pink-300 border-pink-500/30">Команда</Badge>
-            <h2 className="text-4xl font-black text-white font-['Manrope']">
-              Люди за <span className="gradient-text">SiteSphere</span>
+            <div className="chip mb-5 mx-auto w-fit">Команда</div>
+            <h2 className="text-4xl font-black text-white font-['Manrope'] tracking-tight">
+              Люди за <span className="gradient-text">AltDel</span>
             </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {team.map((member, i) => (
-              <div key={member.name} className={`glass rounded-2xl p-6 text-center card-hover reveal delay-${i * 100 + 100}`}>
-                <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${member.color} flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4`}>
+              <div key={member.name} className={`glass rounded-2xl p-6 text-center card-hover reveal ${delayMap[i]}`}>
+                <div className="w-16 h-16 rounded-full flex items-center justify-center text-white text-xl font-black mx-auto mb-4 font-['Manrope']"
+                  style={{ background: `${member.color}30`, border: `2px solid ${member.color}50` }}>
                   {member.initials}
                 </div>
-                <h3 className="text-white font-bold font-['Manrope']">{member.name}</h3>
-                <p className="text-white/50 text-sm mt-1">{member.role}</p>
+                <h3 className="text-white font-bold text-sm font-['Manrope']">{member.name}</h3>
+                <p className="text-white/40 text-xs mt-1">{member.role}</p>
               </div>
             ))}
           </div>
