@@ -218,31 +218,25 @@ export default function Index() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-28" style={{ backgroundColor: "var(--surface-0)" }}>
-        <div className="container mx-auto">
-          <div className="relative glass-md rounded-3xl p-12 md:p-16 text-center overflow-hidden reveal">
-            <div className="absolute inset-0 opacity-10 rounded-3xl" style={{ background: "linear-gradient(135deg, var(--brand-purple), var(--brand-pink))" }} />
-            <div className="relative z-10">
-              <div className="chip mb-6 mx-auto w-fit">Старт</div>
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-4 font-['Manrope']">
-                Готовы запустить<br />
-                <span className="gradient-text">ваш сайт?</span>
-              </h2>
-              <p className="text-white/45 text-lg mb-10 max-w-lg mx-auto">
-                Оставьте заявку — перезвоним в течение 30 минут и расскажем, как это работает
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Button size="lg" className="gradient-primary text-white border-0 hover:opacity-90 text-base px-10 h-12 font-semibold glow-primary">
-                  Оставить заявку
-                  <Icon name="ArrowRight" size={16} className="ml-2" />
-                </Button>
-                <Link to="/contacts">
-                  <Button size="lg" variant="outline" className="border-white/12 text-white/60 bg-transparent hover:bg-white/6 hover:text-white text-base px-8 h-12">
-                    Написать нам
-                  </Button>
-                </Link>
-              </div>
-            </div>
+      <section className="py-28 reveal" style={{ background: "linear-gradient(135deg, #6c47ff 0%, #ff3fa4 100%)" }}>
+        <div className="container mx-auto text-center">
+          <div className="chip mb-6 mx-auto w-fit" style={{ background: "rgba(255,255,255,0.15)", borderColor: "rgba(255,255,255,0.3)", color: "white" }}>Старт</div>
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-4 font-['Manrope'] tracking-tight">
+            Готовы запустить<br />ваш сайт?
+          </h2>
+          <p className="text-white/70 text-lg mb-10 max-w-lg mx-auto">
+            Оставьте заявку — перезвоним в течение 30 минут и расскажем, как это работает
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Button size="lg" className="bg-white text-purple-700 border-0 hover:bg-white/90 text-base px-10 h-12 font-bold">
+              Оставить заявку
+              <Icon name="ArrowRight" size={16} className="ml-2" />
+            </Button>
+            <Link to="/contacts">
+              <Button size="lg" variant="outline" className="border-white/40 text-white bg-transparent hover:bg-white/15 text-base px-8 h-12">
+                Написать нам
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
