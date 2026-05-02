@@ -16,7 +16,7 @@ const features = [
 ];
 
 const stats = [
-  { value: "Быстрый старт", label: "Запуск за 7 дней" },
+  { value: "Быстро", label: "Запуск за 7 дней" },
   { value: "Красиво", label: "Без шаблонов" },
   { value: "Продвижение", label: "Яндекс Реклама" },
   { value: "Надёжность", label: "SSL и защита" },
